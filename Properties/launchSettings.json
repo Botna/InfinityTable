@@ -20,8 +20,17 @@
     "infinityTableWebsite": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
-      "applicationUrl": "http://localhost:5000",
+      "launchUrl": "health/ping",
+      "applicationUrl": "http://192.168.0.23:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "infinityTableWebsiteDev": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "health/ping",
+      "applicationUrl": "http://192.168.0.29:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
