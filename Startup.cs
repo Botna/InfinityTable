@@ -1,3 +1,4 @@
+using infinityTableWebsite.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,10 +22,11 @@ namespace infinityTableWebsite
         {
             Console.WriteLine("Configuring Services");
             services.AddControllers();
+            services.AddSingleton<IPiLedService, PiLedService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime applicationLifetime)
         {
             Console.WriteLine("Configuring App");
             if (env.IsDevelopment())
@@ -40,6 +42,13 @@ namespace infinityTableWebsite
             {
                 endpoints.MapControllers();
             });
+
+            applicationLifetime.ApplicationStopping.Register(OnShutdown);
+        }
+
+        public void OnShutdown()
+        {
+            Console.WriteLine("Shutting down");
         }
     }
 }

@@ -18,7 +18,8 @@ namespace infinityTableWebsite.Controllers
         [Route("ping")]
         public IActionResult Get()
         {
-            return Ok("You have hit me");
+            _logger.LogInformation("Recieved request to health/ping");
+            return Ok();
         }
     }
 }
