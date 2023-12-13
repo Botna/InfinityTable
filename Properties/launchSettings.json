@@ -1,0 +1,31 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:17858",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "infinityTableWebsite": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "health/ping",
+      "applicationUrl": "http://192.168.0.23:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "infinityTableWebsiteDev": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "health/ping",
+      "applicationUrl": "http://192.168.0.29:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}
