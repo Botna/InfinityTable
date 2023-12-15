@@ -1,0 +1,31 @@
+﻿@page "/"
+
+@using blazorSite.Data
+@using BlazorColorPicker
+@using System.Drawing
+@inject PiLedService piLedService
+
+<PageTitle>Infinity Table</PageTitle>
+
+<h1>Welcome to the Infinity table in Andrew's basement.</h1>
+
+<button class="btn btn-primary" @onclick="TurnOnDemo">Run Demo</button>
+
+<button class="btn btn-primary" @onclick="TurnOffTable">Turn off the Table</button>
+
+@code {
+
+    private string throbState = "Enable";
+    protected override async Task OnInitializedAsync()
+    {
+        piLedService.Initialize();
+    }
+
+    public void TurnOnDemo(){
+        piLedService.RunDemo();
+    }
+
+    public void TurnOffTable(){
+        piLedService.SetColor("blank");
+    }
+}

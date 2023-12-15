@@ -9,7 +9,9 @@ namespace infinityTableWebsite.Services
     {
         void SetColor(string color);
         void SetColor(int hue, int saturation, int value); 
+        void SetColorFromHex(string hexColor);
     }
+
     public class PiLedService : IPiLedService
     {
         private readonly WS2801PixelDevice _device;
@@ -51,6 +53,8 @@ namespace infinityTableWebsite.Services
                 singleColorMode.Start();
             }
         }
+
+       
 
         public void SetColor(int hue, int saturation, int value)
         {

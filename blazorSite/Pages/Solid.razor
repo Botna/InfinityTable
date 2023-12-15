@@ -1,0 +1,52 @@
+@page "/solid"
+@using blazorSite.Data
+@using BlazorColorPicker
+@using System.Drawing
+@inject PiLedService piLedService
+
+<PageTitle>Infinity Table</PageTitle>
+
+<h1>Solid Color Picker</h1>
+
+<div> 
+    <button class="btn btn-primary" @onclick="OpenModal">
+        <div style="background-color:@color" class="buttonColor"></div> Select a Color
+    </button>
+
+    <ColorPicker Title="My Blazor ColorPicker" IsOpened="isOpened" Closed="ClosedEvent" MyColor="@color">
+    </ColorPicker>
+
+    <button class="btn btn-primary" @onclick="EnableThrob">Throb @throbState</button>
+</div>
+
+@code {
+
+    private string throbState = "Enable";
+
+    bool isOpened = false;
+    string color = "#FF002F";
+
+    void OpenModal()
+    {
+        isOpened = true;
+    }
+
+    void ClosedEvent(string value)
+    {
+        color = value;
+        piLedService.SetColorFromHex(value);
+        isOpened = false;
+    }
+    void EnableThrob(){
+        if(throbState == "Enable")
+        {
+            throbState = "Disable";
+            piLedService.SetThrobColorFromHex(color);
+
+        }
+        else{
+            throbState = "Enable";
+            piLedService.CancelCurrentMode();
+        }
+    }
+}
