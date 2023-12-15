@@ -29,7 +29,7 @@ namespace infinityTableWebsite
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                    webBuilder.UseUrls("http://192.168.0.23:5000");
+                    webBuilder.UseUrls("http://*:5000");
                 });
 
         //public static void SetupPiLeds()

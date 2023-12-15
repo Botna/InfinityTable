@@ -1,0 +1,28 @@
+@page "/rainbow"
+@using blazorSite.Data
+@using BlazorColorPicker
+@using System.Drawing
+@inject PiLedService piLedService
+
+<PageTitle>Infinity Table</PageTitle>
+
+<h1>Rainbow</h1>
+
+<button class="btn btn-primary" @onclick="EnableRainbow">Rainbow @rainbowState</button>
+
+
+@code {
+    private string rainbowState = "Led";
+
+    void EnableRainbow(){
+
+        piLedService.SetRainbow(rainbowState);
+
+        if(rainbowState == "Led"){
+            rainbowState = "Color Wheel";
+        }
+        else{
+            rainbowState = "Led";
+        }
+    }
+}

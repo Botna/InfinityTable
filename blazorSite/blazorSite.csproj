@@ -6,4 +6,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="PiLed" Version="0.2.0" />
+    <PackageReference Include="BlazorColorPicker" Version="2.3.1" />
+  </ItemGroup>
+
 </Project>
